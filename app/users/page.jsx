@@ -11,10 +11,10 @@ async function UsersPage() {
   const users = await fetchUsers();
 
   return (
-    <>
+    <section>
       <h2>Usuarios</h2>
       <Users users={users} />
-    </>
+    </section>
   );
 }
 

@@ -1,36 +1,23 @@
+import Rickandmortys from "@/components/Rickandmortys";
+
+
 async function fetchrickandmorty() {
-  const res = await fetch("https://rickandmortyapi.com/api/character/?name=rick&status=alive");
+  const res = await fetch(
+    "https://rickandmortyapi.com/api/character/?name=rick&status=alive"
+  );
   const data = await res.json();
   return data.results;
 }
 
-async function rickandmortyPage() {
-  const characters = await fetchrickandmorty();
+async function rickandmortyPages() {
+  const rickandmortys = await fetchrickandmorty();
+
   return (
-    <div>
-      <h1>Rick y Morty</h1>
-      <ul>
-        {characters.map((character) => (
-          <li
-            key={character.id}
-          >
-            <div>
-              <h3>
-                {character.name} 
-              </h3>
-            </div>
-            <picture>
-              <img
-                src={character.image}
-                alt={character.id}
-                style={{ width: "200px", borderRadius:"50%" } }
-              />
-            </picture>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section>
+      <h2>Ricky y Morti</h2>
+     <Rickandmortys rickandmortys={rickandmortys}/>
+    </section>
   );
 }
 
-export default rickandmortyPage;
+export default rickandmortyPages;
