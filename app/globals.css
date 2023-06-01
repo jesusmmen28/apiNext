@@ -1,0 +1,10 @@
+
+.text-shadow-hover:hover {
+    text-shadow: 2px 2px 4px rgba(117, 105, 105, 0.2);
+  }
+  
+  .hover-effect:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  }
+  

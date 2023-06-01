@@ -13,7 +13,7 @@ async function gamePages() {
   const games = await fetchGames();
 
   return (
-    <section>
+    <section className="d-flex flex-column align-items-center justify-content-center">
       <h2>Games</h2>
      <Games games={games}/>
     </section>

@@ -1,6 +1,10 @@
+"use client"
 import Navigation from "@/components/Navigations";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import "bootstrap/dist/css/bootstrap.css"
+import { useEffect } from "react";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,15 +14,37 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  useEffect(() => {
+    import("bootstrap/dist/js/bootstrap")
+  }, [])
+
   return (
     <html lang="en">
-      <head>
-        <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css" />
-      </head>
-      <body className={inter.className}>
-        <Navigation />
-        <div className="container p-4">{children}</div>
-       
+      <head></head>
+      <body>
+        <div className="viewport-container">
+          <Navigation />
+          <div className="content-container">{children}</div>
+        </div>
+
+        <style jsx>{`
+          body {
+            margin: 0;
+            padding: 0;
+          }
+
+          .viewport-container {
+            min-height: 100vh;
+            width: 100%;
+            background-color: #f2f2f2;
+            overflow-y: auto;
+          }
+
+          .content-container {
+            padding: 20px;
+          }
+        `}</style>
       </body>
     </html>
   );
